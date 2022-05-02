@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       body: const Center(
         child: MyText(),
       ),
-      floatingActionButton: const FloatingActionButtons(),
+      floatingActionButton: FloatingActionButtons(),
     );
   }
 }

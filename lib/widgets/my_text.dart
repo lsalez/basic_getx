@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../controllers/counter_controller.dart';
 
 class MyText extends StatelessWidget {
   const MyText({Key? key}) : super(key: key);
@@ -7,16 +10,18 @@ class MyText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [OnlyText()],
+      children: [OnlyText()],
     );
   }
 }
 
 class OnlyText extends StatelessWidget {
-  const OnlyText({Key? key}) : super(key: key);
-
+  OnlyText({Key? key}) : super(key: key);
+  final CounterController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    return const Text('Number of taps: 0');
+    return Obx(() => Text(
+          'Number of taps: ${controller.count}',
+        ));
   }
 }

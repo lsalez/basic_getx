@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../controllers/counter_controller.dart';
 
 class FloatingActionButtons extends StatelessWidget {
-  const FloatingActionButtons({Key? key}) : super(key: key);
+  FloatingActionButtons({Key? key}) : super(key: key);
+  final CounterController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -10,14 +14,14 @@ class FloatingActionButtons extends StatelessWidget {
       children: [
         FloatingActionButton(
           child: const Icon(Icons.plus_one),
-          onPressed: () => {},
+          onPressed: () => controller.incrementOne(),
         ),
         const SizedBox(
           height: 20,
         ),
         FloatingActionButton(
           child: const Icon(Icons.exposure_minus_1),
-          onPressed: () => {},
+          onPressed: () => controller.decrementOne(),
         ),
       ],
     );

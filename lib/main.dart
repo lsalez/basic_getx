@@ -1,24 +1,20 @@
+import 'package:basic_getx/controllers/counter_controller.dart';
+import 'package:basic_getx/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+  final controller = Get.put(CounterController());
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Basic GetX',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Basic GetX'),
-        ),
-        body: Center(
-          child: Container(
-            child: const Text('Basic GetX'),
-          ),
-        ),
-      ),
+      title: 'Basic Provider',
+      initialRoute: 'home',
+      routes: {'home': (context) => const HomePage()},
     );
   }
 }
